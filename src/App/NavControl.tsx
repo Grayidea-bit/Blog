@@ -6,6 +6,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PageControl,{PageContext} from "../Context/PageContext";
 import ThemeControl,{ThemeContext} from "../Context/ThemeContext";
+import './Styles.css';
+import background from "../assets/background.jpg";
 import Home from './Home';
 import Tech from './Tech';
 import Code from './Code';
@@ -22,7 +24,7 @@ const NavBar = () => {
     navigate(path);  
   }
   return (
-    <>
+    <div>
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
           <Navbar.Brand onClick={()=>SwitchPage("/")} style={{cursor:"pointer"}}>GraBlog</Navbar.Brand>
@@ -35,24 +37,30 @@ const NavBar = () => {
           </Nav>
         </Container>
       </Navbar>
-    </>
+    </div>
   );
 }
 
 const NavControl = () => {
   return(
+    <div>
     <PageControl>
       <ThemeControl>
+        <div style={{position:'fixed',width:"100%"}}>
         <NavBar />
+        </div>
+        <div className="display">
         <Routes>
-        <Route path='/' element={<Home />} />
+          <Route path='/' element={<Home />} />
           <Route path='/Tech' element={<Tech />} />
           <Route path='/Code' element={<Code />} />
           <Route path='/Photo' element={<Photo />} />
           <Route path='/Contact' element={<Contact />} />
         </Routes>
+        </div>
       </ThemeControl>
     </PageControl>
+    </div>
   )
 }
 export default NavControl;

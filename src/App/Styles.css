@@ -1,0 +1,11 @@
+.display{
+  width:70%;
+  height: 89.5%;
+  position: absolute;
+  z-index: 100;
+  background-color: grey;
+  text-align: center;
+  margin-left:15%;
+  margin-top: 5%;
+  overflow: auto;
+}
